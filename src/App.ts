@@ -1,3 +1,4 @@
+import { mongoose_url } from "./config/index.config";
 import mongoose from "mongoose";
 import express, { Application } from "express";
 import cors from "cors";
@@ -16,10 +17,8 @@ export default class Server {
   }
 
   private settings(): void {
-    mongoose.connect(
-      "mongodb+srv://admin:admin@myunsplash.vutgw.mongodb.net/myunsplash?retryWrites=true&w=majority",
-      { useNewUrlParser: true, useUnifiedTopology: true },
-      () => console.log("✅ connected mongoDB")
+    mongoose.connect(mongoose_url, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
+      console.log("✅ connected mongoDB")
     );
   }
 
