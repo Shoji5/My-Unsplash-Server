@@ -6,10 +6,10 @@ const uploadImageController = (req: Request, res: Response) => {
   image
     .save()
     .then(() => {
-      res.json({ msg: "upload successful!!" });
+      res.json({ status: "ok", msg: "Uploaded image successfully!!" });
     })
     .catch((err) => {
-      res.status(400).json({ msg: err._message });
+      res.json({ status: "err", msg: err._message });
       console.error(`❌ ${err._message}`);
     });
 };
